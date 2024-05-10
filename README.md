@@ -3,6 +3,9 @@ Hello i am ishaq shaik.
 I got this assignment from Factwise Tech Company.
 ==================================================
 
+
+Deployment Link : https://factwisetech-ishaq-shaik.netlify.app/
+
 1. In this Asiignment i build the user interface page showing Celebraties details like name,age,gender,profile picture and Description
 
 
