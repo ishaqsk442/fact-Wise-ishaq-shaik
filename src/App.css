@@ -1,0 +1,36 @@
+.App {
+  display: flex;
+   justify-content: center;
+  align-items: center; 
+  /* min-height: 100vh; */
+  flex-direction: column;
+}
+.search-cont{
+  display: flex;
+  width: 70%;
+  justify-content: baseline;
+  align-items: center;
+  
+ 
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 10px;
+}
+.icon{
+  height: 30px;
+  width: 30px;
+}
+.list-cont{
+  list-style-type: none;
+  width: 80%;
+  
+}
+.search{
+   height: 100%;
+   /* width: 100%; */
+  
+  border: none;
+  margin-left: 3px;
+  background-color: transparent;
+}

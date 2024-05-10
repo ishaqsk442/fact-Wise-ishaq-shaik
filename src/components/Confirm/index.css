@@ -1,0 +1,10 @@
+.prompt-bg{
+    background-color: antiquewhite;
+}
+.delete-div{
+    height: 20px !important;
+    width: 20px !important;
+}
+.delete-icon{
+    color: red;
+}
