@@ -74,13 +74,16 @@ const UserCard = (props) => {
 
     
 
-    const onChangeEdit = () => {
+    const onChangeEdit = (event) => {
+        event.preventDefault()
         onchangeEditData(id)
     }
 
-    const onSubmit = async () => {
+    const onSubmit = (event) => {
+
+        event.preventDefault()
         
-        await onchangeSubmitData(id,state.Name,state.Gender,state.Description,state.Country,state.age)
+        onchangeSubmitData(id,state.Name,state.Gender,state.Description,state.Country,state.age)
 
         
     }
@@ -101,12 +104,12 @@ const UserCard = (props) => {
    
 
     const changeName = (event) => {
-
-       
-        dispatch({type:"change_name",editedName:event.target.value})
-        
-        
-        
+        let x= event.target.value
+       if ((isNaN(x))) {
+            dispatch({type:"change_name",editedName:event.target.value})
+        } else {
+            dispatch({type:"change_name",editedName:""})
+        }
     }
     const changeAge = (event) => {
 
@@ -147,12 +150,16 @@ const UserCard = (props) => {
     
     return (
         <li className='li' key={id} id={id}  >
+            <form onSubmit={onSubmit}>
+
+
+           
             <div className='top-details'>
                 <div className='profile-name'>
 
                
                 <img className="pic" src={picture} alt={id} />
-                {isEditing ? <input type="text" placeholder='Change name' className='editable-input' onChange={changeName} /> : <h1>{fullName}</h1>}
+                {isEditing ? <input required type="text" placeholder='Change name' className='editable-input' onChange={changeName} value={state.Name}/> : <h1>{fullName}</h1>}
                  </div>
                 {isOpen ? <GoDash className="sign" onClick={x} /> : <FaPlus className="sign" onClick={x} />}
             </div>
@@ -162,7 +169,7 @@ const UserCard = (props) => {
             <div className='age-gender-country'>
                 <div className='age-cont'>
                     <label htmlFor="age">Age</label>
-                        {isEditing && dob > 18 ? <input onChange={changeAge} type="number" id="age" /> : <p>{dob} Years</p>}
+                        {isEditing && dob > 18 ? <input required onChange={changeAge} type="number" id="age" /> : <p>{dob} Years</p>}
                 </div>
                 <div className='gender-cont'>
                         <label>Gender</label>
@@ -177,26 +184,26 @@ const UserCard = (props) => {
                 </div>
                 <div className='country-cont'>
                     <label>Country</label>
-                        {isEditing ? <input type="text" value={state.Country} placeholder='Change Country' onChange={changeCountry}  /> : <p >{country}</p>}
+                        {isEditing ? <input required type="text" value={state.Country} placeholder='Change Country' onChange={changeCountry}  /> : <p >{country}</p>}
                 </div>
                 </div>
                 
 
             <div className='description-cont'>
                     <label>Description</label>
-                    {isEditing ? <textarea placeholder='Change description' className='text-area' onChange={changeDescription} rows="4" cols="60"></textarea> : <p >{description}</p>}
+                    {isEditing ? <textarea required placeholder='Change description' className='text-area' onChange={changeDescription} rows="4" cols="60"></textarea> : <p >{description}</p>}
                 </div>
                 <div className='edit-delete-cont'>
 
-                    {editOn ? <FaRegCircleXmark className=' cross edit-delete' onClick={onCancel} /> : <Confirm className='edit-delete' id={id} onRemoveItem={onRemoveItem} />}
-                    {editOn ? <IoIosCheckmarkCircleOutline className=' check edit-delete' onClick={onSubmit} /> : <TiPencil className=' pencil edit-delete' onClick={onChangeEdit} />}
+                    {editOn ? <button className='button'><FaRegCircleXmark className=' cross edit-delete' onClick={onCancel} /> </button>: <Confirm className='edit-delete' id={id} onRemoveItem={onRemoveItem} />}
+                    {editOn ? <button className='button' type="submit"><IoIosCheckmarkCircleOutline className=' check edit-delete'  /> </button>: <button className='button' type="button"><TiPencil className=' pencil edit-delete' onClick={onChangeEdit} /></button>}
                     
                     
 
             </div>
             </div>
             
-
+             </form>
         </li>
     )
 }
