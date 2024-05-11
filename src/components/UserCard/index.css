@@ -1,3 +1,20 @@
+
+.li{
+    border-radius: 15px;
+    border: 1px solid rgb(66, 63, 63);
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+}
+.profile-name{
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    width: 100%;
+
+}
+
 .pic{
     height: 50px;
     width: 50px;
@@ -41,16 +58,14 @@ input{
 }
 .editable-input{
     border-radius: 0px;
-    height: 50px;
+    height: 40px;
+    width: 100%;
     
 }
-.li{
-    border-radius: 15px;
-    border: 1px solid rgb(66, 63, 63);
-    margin: 10px;
-    padding: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    
+
+.form{
+    width: 100%;
+    flex-wrap: wrap;
 }
 label{
     color: rgb(177, 174, 174);
@@ -133,12 +148,7 @@ label{
     height: 30px;
     width: 30px;
 }
-.profile-name{
-    display: flex;
-    justify-content: baseline;
-    align-items: center;
 
-}
 .pencil{
     color: rgb(21, 133, 231);
 }
@@ -149,11 +159,29 @@ label{
     color: red;
 }
 .sign{
+    position: relative;
+    text-align: center;
     color:rgb(20, 243, 20);
     height: 25px;
     width: 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
+}
+
+.sign .preventCloseButton{
+  /* width: 120px; */
+  /* background-color: black; */
+  font-weight: lighter;
+  color: red;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+visibility: hidden;
+}
+.sign:hover .preventCloseButton{
+  visibility: visible;
 }
 
 
@@ -169,3 +197,4 @@ label{
     background-color: transparent;
     border: none;
 }
+

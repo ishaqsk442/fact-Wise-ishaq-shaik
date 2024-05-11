@@ -1,13 +1,15 @@
 .App {
   display: flex;
-   justify-content: center;
+  justify-content: center;
   align-items: center; 
   /* min-height: 100vh; */
   flex-direction: column;
 }
 .search-cont{
+  align-self: center;
   display: flex;
   width: 70%;
+  /* justify-content: center; */
   justify-content: baseline;
   align-items: center;
   
@@ -15,7 +17,8 @@
   border: 1px solid black;
   border-radius: 10px;
   margin-top: 20px;
-  padding: 10px;
+  padding: 2px;
+  background-color: transparent;
 }
 .icon{
   height: 30px;
@@ -27,10 +30,12 @@
   
 }
 .search{
+  box-shadow: 0px !important;
    height: 100%;
    /* width: 100%; */
+   width: 100%;
   
   border: none;
   margin-left: 3px;
-  background-color: transparent;
+  
 }

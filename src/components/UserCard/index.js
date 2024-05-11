@@ -97,7 +97,12 @@ const UserCard = (props) => {
         onchangeEditData(id)
     }
 
-    let x = editOn===true && isEditing===false ? ()=>{} : showHideList
+
+   
+
+    let x = editOn === true && isEditing === false ? () => { } : showHideList
+    
+    // let y = editOn && isEditing 
     
     let openBottom = isOpen ? "show" : "hide";
 
@@ -150,7 +155,7 @@ const UserCard = (props) => {
     
     return (
         <li className='li' key={id} id={id}  >
-            <form onSubmit={onSubmit}>
+            <form className='form' onSubmit={onSubmit}>
 
 
            
@@ -161,7 +166,9 @@ const UserCard = (props) => {
                 <img className="pic" src={picture} alt={id} />
                 {isEditing ? <input required type="text" placeholder='Change name' className='editable-input' onChange={changeName} value={state.Name}/> : <h1>{fullName}</h1>}
                  </div>
-                {isOpen ? <GoDash className="sign" onClick={x} /> : <FaPlus className="sign" onClick={x} />}
+                    {/* {isOpen ? <GoDash className="sign" onClick={x} /> : <FaPlus className="sign" onClick={x} />} */}
+                    
+                    {editOn && isEditing && isOpen ? <div className='sign'><GoDash/><span className="preventCloseButton">please fill the form</span></div> : isOpen ? <GoDash className="sign" onClick={x} /> : <FaPlus className="sign" onClick={x} />}
             </div>
 
 
@@ -169,12 +176,12 @@ const UserCard = (props) => {
             <div className='age-gender-country'>
                 <div className='age-cont'>
                     <label htmlFor="age">Age</label>
-                        {isEditing && dob > 18 ? <input required onChange={changeAge} type="number" id="age" /> : <p>{dob} Years</p>}
+                        {isEditing && dob > 18 ? <input className='editable-input' required onChange={changeAge} type="number" id="age" /> : <p>{dob} Years</p>}
                 </div>
                 <div className='gender-cont'>
                         <label>Gender</label>
                         {isEditing ?
-                            <select className='gender-change' placeholder='Choose Gender' onChange={changeGender}>
+                            <select className='gender-change editable-input' placeholder='Choose Gender' onChange={changeGender}>
                                 <option>Male</option>
                                 <option>Female</option>
                                 <option>Trangender</option>
@@ -184,7 +191,7 @@ const UserCard = (props) => {
                 </div>
                 <div className='country-cont'>
                     <label>Country</label>
-                        {isEditing ? <input required type="text" value={state.Country} placeholder='Change Country' onChange={changeCountry}  /> : <p >{country}</p>}
+                        {isEditing ? <input required className='editable-input' type="text" value={state.Country} placeholder='Change Country' onChange={changeCountry}  /> : <p >{country}</p>}
                 </div>
                 </div>
                 
